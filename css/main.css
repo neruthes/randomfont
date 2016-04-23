@@ -117,7 +117,7 @@ img#js-FontSampleImage {
 .font-metadata-value {
     font-size: 2rem;
     font-weight: 300;
-    color: #BBB;
+    color: #333;
 }
 
 .font-metadata-value a {
@@ -128,7 +128,7 @@ img#js-FontSampleImage {
 }
 
 #js-BriefArticleContent p {
-    line-height: 1.65em;
+    line-height: 1.55em;
 }
 
 /* ---------------------------------------- */
