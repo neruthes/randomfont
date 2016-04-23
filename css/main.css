@@ -1,0 +1,148 @@
+html, body {
+    font-family: 'Erato', 'Iowan Old Style', Georgia, serif;
+    font-size: 10px;
+    transition: all 250ms ease;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background: #FFF;
+}
+
+._C-pointer {
+    cursor: pointer;
+}
+
+._sans {
+    font-family: 'Seravek', 'Myriad Pro', 'Open Sans', -apple-system, 'SF UI Text', 'SF NS Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+._serif {
+    font-family: 'Erato', 'Iowan Old Style', Georgia, serif;
+}
+
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+a.dynamic-color {
+    color: inherit;;
+}
+
+.text-primary {
+    color: #E97217;
+    /*color: #1092F3;*/
+}
+
+a.text-primary:hover {
+    color: #E97217;
+    -webkit-filter: brightness(0.88);
+}
+
+.header {
+    min-height: 100px;
+    padding-top: 5rem;
+    padding-bottom: 2.5rem;
+}
+
+.h1 {
+    color: rgba(255, 255, 255, 0);
+    background: url(/img/randomfont-logo-primary.png) left scroll no-repeat;
+    background-position: left center;
+    background-size: 209px;
+    background-origin: content-box;
+    display: inline-block;
+    margin: 0;
+    opacity: 0.75;
+}
+
+.h1:hover {
+    opacity: 1;
+}
+
+.row[data-role="font-sample-image-container"] {
+    margin-bottom: 3rem;
+}
+
+#js-PurchaseLink {
+    /*font-size: 1.4rem;*/
+    /*font-weight: 600;*/
+    display: block;
+    /*margin-top: 5px;*/
+}
+
+.fontSampleImage-container {
+    /*border-bottom: 1px solid #AAA;*/
+    /*border-radius: 6px;*/
+    position: relative;
+    height: 30rem;
+}
+
+img#js-FontSampleImage {
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: auto;
+    max-width: 74%;
+    max-height: 11rem;
+    position: absolute;
+}
+
+.row[data-role="font-metadata"] {
+    font-size: 2rem;
+}
+
+.font-metadata-container {
+    padding: 0 0 10px;
+}
+
+.font-metadata-caption {
+    font-family: 'Seravek', sans-serif;
+    font-size: 1.2rem;
+    color: #999;
+    letter-spacing: 1px;
+    padding: 0 0 3px;
+}
+
+.font-metadata-value {
+    font-size: 2rem;
+    color: #BBB;
+}
+
+.font-metadata-value a {
+    color: #333;
+}
+
+.font-metadata-value a:hover, .font-metadata-value a:active {
+}
+
+#js-BriefArticleContent p {
+    line-height: 1.65em;
+}
+
+/* ---------------------------------------- */
+
+#js-GetAnotherFont {
+    display: none;
+    font-size: 1.6rem;
+    color: #666;
+    opacity: 0.75;
+}
+
+#js-GetAnotherFont:hover {
+    opacity: 1;
+}
+
+/* ---------------------------------------- */
+
+.row[data-role="website-footer"] {
+    font-size: 1.2rem;
+    color: #999;
+    padding: 5rem 0 3rem;
+}
+
+/* ---------------------------------------- */
