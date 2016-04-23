@@ -81,6 +81,12 @@ a.text-primary:hover {
     height: 30rem;
 }
 
+@media screen and (max-width: 768px) {
+    .fontSampleImage-container {
+        height: 20rem;
+    }
+}
+
 img#js-FontSampleImage {
     top: 50%;
     left: 50%;
@@ -88,7 +94,7 @@ img#js-FontSampleImage {
     display: block;
     width: auto;
     max-width: 74%;
-    max-height: 11rem;
+    max-height: 33%;
     position: absolute;
 }
 
@@ -97,14 +103,13 @@ img#js-FontSampleImage {
 }
 
 .font-metadata-container {
-    padding: 0 0 10px;
+    padding: 0 0 2rem;
 }
 
 .font-metadata-caption {
-    font-family: 'Seravek', sans-serif;
     font-size: 1.2rem;
     color: #999;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
     padding: 0 0 3px;
 }
 
