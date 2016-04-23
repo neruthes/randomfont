@@ -108,6 +108,7 @@ img#js-FontSampleImage {
 
 .font-metadata-caption {
     font-size: 1.2rem;
+    font-weight: 300;
     color: #999;
     letter-spacing: 2px;
     padding: 0 0 3px;
@@ -115,6 +116,7 @@ img#js-FontSampleImage {
 
 .font-metadata-value {
     font-size: 2rem;
+    font-weight: 300;
     color: #BBB;
 }
 
@@ -146,6 +148,7 @@ img#js-FontSampleImage {
 
 .row[data-role="website-footer"] {
     font-size: 1.2rem;
+    font-weight: 300;
     color: #999;
     padding: 5rem 0 3rem;
 }
