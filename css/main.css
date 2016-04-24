@@ -108,17 +108,11 @@ img#js-FontSampleImage {
     font-size: 2rem;
     font-weight: 400;
     color: #333;
+    line-height: 1.55em;
 }
 
 .font-metadata-value a {
     color: #333;
-}
-
-.font-metadata-value a:hover, .font-metadata-value a:active {
-}
-
-#js-BriefArticleContent p {
-    line-height: 1.55em;
 }
 
 /* ---------------------------------------- */
