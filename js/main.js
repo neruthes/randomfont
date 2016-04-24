@@ -38,15 +38,69 @@ app.generateDomForDesigners = function (arr) {
     }).join('');
 };
 
+app.colorParser = function (colorStr) {
+    if (colorStr.indexOf('rgb(') === 0) {
+        // CSS hex mode
+        var colorArr = colorStr.replace('rgb(', '').replace(')', '').split(', ');
+        return {
+            r: Number(colorArr[0]),
+            g: Number(colorArr[1]),
+            b: Number(colorArr[2])
+        };
+    } else if (colorStr.indexOf('#') === 0) {
+        // RGB function mode
+        var colorArr = [ colorStr.slice(1, 3), colorStr.slice(3, 5), colorStr.slice(5, 7) ];
+        return {
+            r: parseInt(colorArr[0], 16),
+            g: parseInt(colorArr[1], 16),
+            b: parseInt(colorArr[2], 16)
+        };
+    } else {
+        // Error
+        return {
+            r: 0,
+            g: 0,
+            b: 0
+        };
+    };
+};
+
+app.colorEncoder = function (colorObj) {
+    // var colorObj = { r: 12, g: 222, b: 148 };
+    return 'rgb(R, G, B)'.replace(/[RGB]/g, function (arg1) {
+        return colorObj[ arg1.toLowerCase() ];
+    })
+};
+
+app.colorDarken = function (co) {
+    var _darken = function (c) {
+        var _dc = 32;
+        return (c - _dc >= 0) ? c - _dc : 0;
+    };
+    return {
+        r: _darken(co.r),
+        g: _darken(co.g),
+        b: _darken(co.b)
+    }
+};
+
 app.renderPage = function (data) {
     console.log(data);
+    if (data.designer.length === 1) {
+        document.getElementById('js-Caption-Designer').innerHTML = 'DESIGNER';
+    } else {
+        document.getElementById('js-Caption-Designer').innerHTML = 'DESIGNERS';
+    };
     document.getElementById('js-PurchaseLink').href = data.url + '?refby=joyneop';
     var theRandomColor = app.pickRandomly(app.gayradientColors).match(/#[0-9A-F]{6}/)[0];
+    var _c2 = app.colorEncoder(app.colorDarken(app.colorParser(theRandomColor)));
     document.getElementById('css-FontMetadata-anchor-hover').innerHTML = 'a.dynamic-color:hover { border-bottom: 2px solid _COLOR_; }'.replace(/_COLOR_/, theRandomColor);
     document.getElementById('js-FontDesigner').innerHTML = app.generateDomForDesigners(data.designer);
     document.getElementById('js-FontPublisher').innerHTML = '<a class="dynamic-color" href="_URL_" target="_blank" rel="nofollow">_NAME_</a>'.replace(/_NAME_/g, data.foundry.name).replace(/_URL_/g, data.foundry.url);
     document.getElementById('js-BriefArticleContent').innerHTML = '<p>' + data.description.join('</p><p>') + '</p>';
-    document.getElementById('js-FontSampleImage-container').style.background = theRandomColor;
+    // document.getElementById('js-FontSampleImage-container').style.background = theRandomColor;
+    console.log(theRandomColor, _c2);
+    document.getElementById('js-FontSampleImage-container').style.background = 'linear-gradient(_C1_, _C2_)'.replace('_C1_', theRandomColor).replace('_C2_', _c2);
     var fontSampleImageUrl = app.getFontSampleImageUrl(data);
     window.setTimeout(function () {
         document.getElementById('js-FontSampleImage').setAttribute('src', fontSampleImageUrl);
