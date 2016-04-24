@@ -29,17 +29,7 @@ a, a:visited, a:hover, a:active {
 }
 
 a.dynamic-color {
-    color: inherit;;
-}
-
-.text-primary {
-    color: #E97217;
-    /*color: #1092F3;*/
-}
-
-a.text-primary:hover {
-    color: #E97217;
-    -webkit-filter: brightness(0.88);
+    color: inherit;
 }
 
 .header {
@@ -116,7 +106,7 @@ img#js-FontSampleImage {
 
 .font-metadata-value {
     font-size: 2rem;
-    font-weight: 300;
+    font-weight: 400;
     color: #333;
 }
 
@@ -152,5 +142,3 @@ img#js-FontSampleImage {
     color: #999;
     padding: 5rem 0 3rem;
 }
-
-/* ---------------------------------------- */
