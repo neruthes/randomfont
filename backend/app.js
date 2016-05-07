@@ -64,11 +64,11 @@ listJson.map(function (fontFamily) {
     };
 });
 
-// Generate a
+// Generate
 
-Object.keys(database.data).map(function (fontFamily) {
+Object.keys(database.data).map(function (fontFamily, ind) {
     var jsonText = JSON.stringify(database.select(fontFamily));
-    fs.writeFileSync(__dirname + '/data/_FONT_FAMILY_.json'.replace(/_FONT_FAMILY_/, fontFamily.replace(/\s/g, '_')), jsonText);
+    fs.writeFileSync(__dirname + '/data2/_FONT_FAMILY_ID_.json'.replace(/_FONT_FAMILY_ID_/, ind), jsonText);
 });
 
 // Validation
@@ -82,3 +82,9 @@ Object.keys(database.data).map(function (fontFamily) {
         console.log('!! ' + fontFamily + ' does not have description');
     };
 });
+
+// HTML meta tag
+
+(function (html) {
+    fs.writeFileSync(__dirname + '/../index.html', html.replace(/(<meta name="app-fonts-count-20160506DI" content=")\d+"/, '$1_"'.replace(/_/, Object.keys(database.data).length-1)));
+})(fs.readFileSync(__dirname + '/../index.html').toString());

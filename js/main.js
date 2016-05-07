@@ -9,10 +9,6 @@ app.setTransitionalElementsOpacity = function (op_) {
     };
 };
 
-app.pickRandomly = function (arr) {
-    return arr[ Math.floor(Math.random()*arr.length) ];
-};
-
 app.request = function (url, callback) {
 	var http = new XMLHttpRequest();
 	http.open('GET', url, true);
@@ -26,10 +22,6 @@ app.getFontSampleImageUrl = function (data) {
     var fontSampleImageUrl = 'http://apicdn.myfonts.net/v1/fontsample?id=_FID_&idtype=familyid&text=_TEXT_&fg=FFFFFF&format=png&transparent=true&size=150&width=_WIDTH_&behaviour=resize'.replace(/_WIDTH_/, imgWidth).replace(/_FID_/, data.id).replace(/_TEXT_/, encodeURI(data.familyName));
     console.log(fontSampleImageUrl);
     return fontSampleImageUrl;
-};
-
-app.cacheFile = function (url) {
-    app.request(url);
 };
 
 app.generateDomForDesigners = function (arr) {
@@ -107,53 +99,29 @@ app.renderPage = function (data) {
     }, 255);
     app._currentFont = data;
     app._currentFontName = data.familyName;
-    delete app._nextFont;
-    delete app._nextFontName;
     window.setTimeout(function () {
         app.setTransitionalElementsOpacity(1);
     }, 550);
 };
 
-app.getNextFont = function () {
-    app._nextFont_name = app.pickRandomly(app._listOfFonts);
-    while (app._nextFont_name === app._currentFont_name) {
-        app._nextFont_name = app.pickRandomly(app._listOfFonts);
-    };
-    app.request('/backend/data/_F_.json'.replace(/_F_/, app._nextFont_name.replace(/\s/g, '_')), function (ev_) {
-        app._nextFont = JSON.parse(ev_.target.responseText);
-        app.cacheFile(app.getFontSampleImageUrl(app._nextFont));
-    });
+app.getMaxFontId = function () {
+    var metaTag = document.querySelectorAll('meta[name="app-fonts-count-20160506DI"]')[0];
+    return Number(metaTag.getAttribute('content'));
 };
 
-app.__specifyNextFont = function (ffname) {
-    app._nextFont_name = ffname ? ffname : 'Museo Sans Rounded';
-    app.request('/backend/data/_F_.json'.replace(/_F_/, app._nextFont_name.replace(/\s/g, '_')), function (ev_) {
-        app._nextFont = JSON.parse(ev_.target.responseText);
-        app.cacheFile(app.getFontSampleImageUrl(app._nextFont));
-    });
+app.pickRandomNumberUpTo = function (upperBoundary) {
+    return Math.floor(Math.random()*(1+upperBoundary));
 };
 
 window.addEventListener('load', function () {
     app.request('/backend/gay.json', function (ev) {
         app.gayradientColors = JSON.parse(ev.target.responseText);
-        app.request('/backend/raw-families-list.json', function (ev_) {
-            app._listOfFonts = JSON.parse(ev_.target.responseText);
-            app._currentFont_name = app.pickRandomly(app._listOfFonts);
-            app.request('/backend/data/_F_.json'.replace(/_F_/, app._currentFont_name.replace(/\s/g, '_')), function (ev__) {
-                app._currentFont = JSON.parse(ev__.target.responseText);
-                app.renderPage(app._currentFont);
-                app.getNextFont();
-            });
-            // todo: Cache all files
-        });
-    });
 
-    document.getElementById('js-GetAnotherFont').addEventListener('click', function () {
-        // app.__specifyNextFont();app.renderPage(app._nextFont); // For debug only
-        app.setTransitionalElementsOpacity(0);
-        if (app._nextFont) {
-            app.renderPage(app._nextFont);
-            app.getNextFont();
-        };
+        app._currentFont_id = app.pickRandomNumberUpTo(app.getMaxFontId());
+        app.request('/backend/data2/_F_.json'.replace(/_F_/, app._currentFont_id), function (ev_) {
+            app._currentFont = JSON.parse(ev_.target.responseText);
+            app.renderPage(app._currentFont);
+        });
+
     });
 });
