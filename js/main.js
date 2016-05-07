@@ -9,6 +9,10 @@ app.setTransitionalElementsOpacity = function (op_) {
     };
 };
 
+app.pickRandomly = function (arr) {
+	return arr[ Math.floor(Math.random()*arr.length) ];
+};
+
 app.request = function (url, callback) {
 	var http = new XMLHttpRequest();
 	http.open('GET', url, true);
