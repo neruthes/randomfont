@@ -89,14 +89,11 @@ app.renderPage = function (data) {
     };
     document.getElementById('js-PurchaseLink').href = data.url + '?refby=joyneop';
     var theRandomColor = app.pickRandomly(app.gayradientColors).match(/#[0-9A-F]{6}/)[0];
-    var _c2 = app.colorEncoder(app.colorDarken(app.colorParser(theRandomColor)));
     document.getElementById('css-FontMetadata-anchor-hover').innerHTML = 'a.dynamic-color:hover { border-bottom: 2px solid _COLOR_; }'.replace(/_COLOR_/, theRandomColor);
     document.getElementById('js-FontDesigner').innerHTML = app.generateDomForDesigners(data.designer);
     document.getElementById('js-FontPublisher').innerHTML = '<a class="dynamic-color" href="_URL_" target="_blank" rel="nofollow">_NAME_</a>'.replace(/_NAME_/g, data.foundry.name).replace(/_URL_/g, data.foundry.url);
     document.getElementById('js-BriefArticleContent').innerHTML = '<p>' + data.description.join('</p><p>') + '</p>';
-    // document.getElementById('js-FontSampleImage-container').style.background = theRandomColor;
-    console.log(theRandomColor, _c2);
-    document.getElementById('js-FontSampleImage-container').style.background = 'linear-gradient(_C1_, _C2_)'.replace('_C1_', theRandomColor).replace('_C2_', _c2);
+    document.body.style.background = theRandomColor;
     var fontSampleImageUrl = app.getFontSampleImageUrl(data);
     window.setTimeout(function () {
         document.getElementById('js-FontSampleImage').setAttribute('src', fontSampleImageUrl);
