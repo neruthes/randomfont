@@ -46,11 +46,6 @@ a.dynamic-color {
     background-origin: content-box;
     display: inline-block;
     margin: 0;
-    opacity: 0.75;
-}
-
-.h1:hover {
-    opacity: 1;
 }
 
 .row[data-role="font-sample-image-container"] {
