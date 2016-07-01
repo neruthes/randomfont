@@ -48,7 +48,7 @@ a.dynamic-color:hover, .dynamic-color:hover {
     background-position: left center;
     background-size: 209px;
     background-origin: content-box;
-    display: inline-block;
+    display: block;
     margin: 0;
 }
 
