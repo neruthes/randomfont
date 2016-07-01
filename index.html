@@ -12,77 +12,102 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <style>
     @import url(/fonts/open-sans.css);
-    @import url(/fonts/erato.css);
+    @import url(/fonts/danton.css);
     </style>
     <link rel="stylesheet" href="/css/main.css">
     <script src="/js/main.js"></script>
     <style id="css-FontMetadata-anchor-hover"></style>
 </head>
 <body styles="opacity: 0;">
-    <div class="container" style="min-height: 80vh; padding-bottom: 2rem;">
+    <div style="min-height: 100vh; position: relative;" id="js-ColorBackground">
+        <div class="container" style="min-height: 80vh; padding-bottom: 2rem;">
 
-        <header class="row">
-            <div class="col col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2  header">
-                <a href="/">
-                    <h1 class="h1">RandomFont</h1>
-                </a>
+            <header class="row">
+                <div class="col col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2  header">
+                    <a href="/">
+                        <h1 class="h1">RandomFont</h1>
+                    </a>
+                </div>
+            </header>
+
+            <div class="row" data-role="font-sample-image-container">
+                <div class="col col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                    <a id="js-PurchaseLink" target="_blank">
+                        <div id="js-FontSampleImage-container" class="fontSampleImage-container">
+                            <img id="js-FontSampleImage" class="js-TransitionalElement">
+                        </div>
+                    </a>
+                </div>
             </div>
-        </header>
 
-        <div class="row" data-role="font-sample-image-container">
-            <div class="col col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                <a id="js-PurchaseLink" target="_blank">
-                    <div id="js-FontSampleImage-container" class="fontSampleImage-container">
-                        <img id="js-FontSampleImage" class="js-TransitionalElement">
+            <div class="row" data-role="font-metadata">
+                <div class="col col-xs-12 col-sm-12 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-2">
+                    <div class="font-metadata-container">
+                        <div id="js-Caption-Designer" class="font-metadata-caption _sans">
+                            DESIGNER
+                        </div>
+                        <div id="js-FontDesigner"  class="font-metadata-value">
+                            <span class="invisible">Placeholder</span>
+                        </div>
                     </div>
-                </a>
+                    <div class="font-metadata-container">
+                        <div  class="font-metadata-caption _sans">
+                            PUBLISHER
+                        </div>
+                        <div id="js-FontPublisher" class="font-metadata-value">
+                            <span class="invisible">Placeholder</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col col-xs-12 col-sm-12 col-md-7 col-lg-5">
+                    <div class="font-metadata-container">
+                        <div class="font-metadata-caption _sans">
+                            INTRODUCTION
+                        </div>
+                        <article id="js-BriefArticleContent" class="font-metadata-value">
+                        </article>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="row" data-role="font-metadata">
-            <div class="col col-xs-12 col-sm-12 col-md-3 col-md-offset-1 col-lg-3 col-lg-offset-2">
-                <div class="font-metadata-container">
-                    <div id="js-Caption-Designer" class="font-metadata-caption _sans">
-                        DESIGNER
-                    </div>
-                    <div id="js-FontDesigner"  class="font-metadata-value">
-                        <span class="invisible">Placeholder</span>
-                    </div>
+        <footer class="container">
+            <div class="row _sans" data-role="website-footer">
+                <div class="col col-xs-12 col-sm-12 col-md-5 col-md-offset-1 col-lg-4 col-lg-offset-2">
+                    &copy; <script>document.write((new Date()).getFullYear())</script> <a class="dynamic-color" href="https://joyneop.xyz/">Joy Neop</a>
                 </div>
-                <div class="font-metadata-container">
-                    <div  class="font-metadata-caption _sans">
-                        PUBLISHER
-                    </div>
-                    <div id="js-FontPublisher" class="font-metadata-value">
-                        <span class="invisible">Placeholder</span>
-                    </div>
+                <div class="col col-xs-12 col-sm-12 col-md-5 col-lg-4  text-right">
+                    <span id="js-PoweredByMyFonts" class="hide-when-parent-hover">Powered by MyFonts API</span>
+                    <span id="js-expand" class="show-when-parent-hover dynamic-color">Learn More About RandomFont</span>
                 </div>
             </div>
-            <div class="col col-xs-12 col-sm-12 col-md-7 col-lg-5">
-                <div class="font-metadata-container">
-                    <div class="font-metadata-caption _sans">
-                        INTRODUCTION
-                    </div>
-                    <article id="js-BriefArticleContent" class="font-metadata-value">
-                    </article>
-                </div>
-            </div>
-        </div>
-
+        </footer>
     </div>
 
-
-    <footer class="container">
-        <div class="row" data-role="website-footer">
-            <div class="col col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
-                <div class="_sans" style="float: right">
-                    Powered by MyFonts API
-                </div>
-                <div class="_sans" style="float: left">
-                    &copy; Designed by <a class="dynamic-color" href="https://joyneop.xyz/">Joy Neop</a> in <script>document.write((new Date()).getFullYear())</script>
+    <div id="js-additional" style="display: none;">
+        <div class="container">
+            <div class="row">
+                <div class="col col-xs-12 col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2  _serif" style="border-radius: 2px;">
+                    <h2 class="_sans">About RandomFont</h2>
+                    <p>
+                        Welcome to RandomFont!
+                    </p>
+                    <p>
+                        Here is Joy Neop (a.k.a. Neruthes), a product designer with various devotions. And now you are seeing my love for typography.
+                    </p>
+                    <p>
+                        Every time you load this page, you will get a font randomly, with sample image, metadata, and description.
+                    </p>
+                    <p>
+                        By clicking the image, you will be redirected to MyFonts.com, and see purchase options. If you purchase any font following the link, a referral fee will be rewarded to my account, for later purchases.
+                    </p>
+                    <p>
+                        Thanks MyFonts for API provision.
+                    </p>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+    <script src="https://raw.githubusercontent.com/JoyNeop/gay-pride.js/master/pride.js"></script>
 </body>
 </html>

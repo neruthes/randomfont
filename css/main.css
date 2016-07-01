@@ -1,5 +1,5 @@
 html, body {
-    font-family: 'Erato', 'Iowan Old Style', Georgia, serif;
+    font-family: 'Danton', 'Diaria Pro', 'Erato', 'Iowan Old Style', Georgia, serif;
     font-size: 10px;
     transition: all 250ms ease;
 }
@@ -21,15 +21,19 @@ body {
 }
 
 ._serif {
-    font-family: 'Erato', 'Iowan Old Style', Georgia, serif;
+    font-family: 'Danton', 'Diaria Pro', 'Erato', 'Iowan Old Style', Georgia, serif;
 }
 
 a, a:visited, a:hover, a:active {
     text-decoration: none;
 }
 
-a.dynamic-color {
+a.dynamic-color, .dynamic-color {
     color: inherit;
+}
+
+a.dynamic-color:hover, .dynamic-color:hover {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
 }
 
 .header {
@@ -94,7 +98,7 @@ img#js-FontSampleImage {
 
 .font-metadata-value {
     font-size: 2rem;
-    font-weight: 400;
+    font-weight: 300;
     color: rgba(255, 255, 255, 1);
     line-height: 1.55em;
 }
@@ -110,4 +114,57 @@ img#js-FontSampleImage {
     font-weight: 300;
     color: rgba(255, 255, 255, 0.7);
     padding: 5rem 0 3rem;
+}
+
+/* ---------------------------------------- */
+
+.row #js-expand {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.row:hover #js-expand {
+}
+
+/* ---------------------------------------- */
+
+#js-expand {
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#js-additional {
+    color: #FFF;
+    /*color: #333;*/
+    background: rgba(0, 0, 0, 0.25);
+    padding: 30px;
+}
+
+body #js-additional h2 {
+    font-size: 35px;
+    margin: 0.5em 0;
+}
+
+body #js-additional p {
+    font-size: 20px;
+    font-weight: 300;
+    margin: 1em 0;
+}
+
+/**/
+
+span.hide-when-parent-hover {
+    display: inline;
+}
+
+*:hover > span.hide-when-parent-hover {
+    display: none;
+}
+
+span.show-when-parent-hover {
+    display: none;
+}
+
+*:hover > span.show-when-parent-hover {
+    display: inline;
 }

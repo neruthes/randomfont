@@ -88,12 +88,13 @@ app.renderPage = function (data) {
         document.getElementById('js-Caption-Designer').innerHTML = 'DESIGNERS';
     };
     document.getElementById('js-PurchaseLink').href = data.url + '?refby=joyneop';
-    var theRandomColor = app.pickRandomly(app.gayradientColors).match(/#[0-9A-F]{6}/)[0];
-    document.getElementById('css-FontMetadata-anchor-hover').innerHTML = 'a.dynamic-color:hover { border-bottom: 2px solid _COLOR_; }'.replace(/_COLOR_/, theRandomColor);
+    window.theRandomColor = app.pickRandomly(app.gayradientColors).match(/#[0-9A-F]{6}/)[0];
+    // document.getElementById('css-FontMetadata-anchor-hover').innerHTML = 'a.dynamic-color:hover { border-bottom: 2px solid _COLOR_; }'.replace(/_COLOR_/, theRandomColor);
     document.getElementById('js-FontDesigner').innerHTML = app.generateDomForDesigners(data.designer);
     document.getElementById('js-FontPublisher').innerHTML = '<a class="dynamic-color" href="_URL_" target="_blank" rel="nofollow">_NAME_</a>'.replace(/_NAME_/g, data.foundry.name).replace(/_URL_/g, data.foundry.url);
     document.getElementById('js-BriefArticleContent').innerHTML = '<p>' + data.description.join('</p><p>') + '</p>';
-    document.body.style.background = theRandomColor;
+    document.body.style.backgroundColor = theRandomColor;
+    document.getElementById('js-ColorBackground').style.backgroundColor = theRandomColor;
     var fontSampleImageUrl = app.getFontSampleImageUrl(data);
     window.setTimeout(function () {
         document.getElementById('js-FontSampleImage').setAttribute('src', fontSampleImageUrl);
@@ -122,6 +123,12 @@ window.addEventListener('load', function () {
         app.request('/backend/data2/_F_.json'.replace(/_F_/, app._currentFont_id), function (ev_) {
             app._currentFont = JSON.parse(ev_.target.responseText);
             app.renderPage(app._currentFont);
+            document.getElementById('js-expand').addEventListener('click', function () {
+                document.getElementById('js-expand').style.display = 'none';
+                document.getElementById('js-PoweredByMyFonts').classList.remove('hide-when-parent-hover');
+                document.getElementById('js-additional').style.display = 'block';
+                window.scrollTo(0, document.getElementById('js-additional').offsetTop + document.getElementById('js-additional').offsetHeight + window.innerHeight);
+            });
         });
 
     });
