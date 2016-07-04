@@ -12,6 +12,11 @@ body {
     background: #FFF;
 }
 
+h2, ._serif h2, h2._serif {
+    font-family: 'Hoefler Text', 'Danton', 'Diaria Pro', 'Erato', 'Iowan Old Style', Georgia, serif;
+    font-weight: 600;
+}
+
 ._C-pointer {
     cursor: pointer;
 }
@@ -84,8 +89,8 @@ img#js-FontSampleImage {
     font-size: 2rem;
 }
 
-.font-metadata-container {
-    padding: 0 0 2rem;
+.font-metadata-container:first-child {
+    padding: 0 0 4rem;
 }
 
 .font-metadata-caption {
@@ -100,7 +105,7 @@ img#js-FontSampleImage {
     font-size: 2rem;
     font-weight: 300;
     color: rgba(255, 255, 255, 1);
-    line-height: 1.55em;
+    line-height: 1.5em;
 }
 
 .font-metadata-value a {
