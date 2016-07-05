@@ -89,7 +89,7 @@ img#js-FontSampleImage {
     font-size: 2rem;
 }
 
-.font-metadata-container:first-child {
+.font-metadata-container {
     padding: 0 0 4rem;
 }
 
@@ -140,7 +140,6 @@ img#js-FontSampleImage {
 
 #js-additional {
     color: #FFF;
-    /*color: #333;*/
     background: rgba(0, 0, 0, 0.25);
     padding: 30px;
 }
