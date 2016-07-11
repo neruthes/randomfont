@@ -30,7 +30,7 @@ app.getFontSampleImageUrl = function (data) {
 
 app.generateDomForDesigners = function (arr) {
     return arr.map(function (ele) {
-        return '<span style="display: block;"><a class="dynamic-color" href="_URL_" target="_blank" rel="nofollow">_NAME_</a></span>'.replace(/_NAME_/g, ele.name).replace(/_URL_/g, ele.url);
+        return '<span style="display: block;"><a class="hover--magic-underlined" href="_URL_" target="_blank" rel="nofollow">_NAME_</a></span>'.replace(/_NAME_/g, ele.name).replace(/_URL_/g, ele.url);
     }).join('');
 };
 
@@ -89,9 +89,9 @@ app.renderPage = function (data) {
     };
     document.getElementById('js-PurchaseLink').href = data.url + '?refby=joyneop';
     window.theRandomColor = app.pickRandomly(app.gayradientColors).match(/#[0-9A-F]{6}/)[0];
-    // document.getElementById('css-FontMetadata-anchor-hover').innerHTML = 'a.dynamic-color:hover { border-bottom: 2px solid _COLOR_; }'.replace(/_COLOR_/, theRandomColor);
+    // document.getElementById('css-FontMetadata-anchor-hover').innerHTML = 'a.hover--magic-underlined:hover { border-bottom: 2px solid _COLOR_; }'.replace(/_COLOR_/, theRandomColor);
     document.getElementById('js-FontDesigner').innerHTML = app.generateDomForDesigners(data.designer);
-    document.getElementById('js-FontPublisher').innerHTML = '<a class="dynamic-color" href="_URL_" target="_blank" rel="nofollow">_NAME_</a>'.replace(/_NAME_/g, data.foundry.name).replace(/_URL_/g, data.foundry.url);
+    document.getElementById('js-FontPublisher').innerHTML = '<a class="hover--magic-underlined" href="_URL_" target="_blank" rel="nofollow">_NAME_</a>'.replace(/_NAME_/g, data.foundry.name).replace(/_URL_/g, data.foundry.url);
     document.getElementById('js-BriefArticleContent').innerHTML = '<p>' + data.description.join('</p><p>') + '</p>';
     document.body.style.backgroundColor = theRandomColor;
     document.getElementById('js-ColorBackground').style.backgroundColor = theRandomColor;
