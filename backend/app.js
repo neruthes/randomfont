@@ -1,5 +1,5 @@
 /*
-(c) 2016 Joy Neop. All rights reserved.
+(c) 2016 Neruthes. All rights reserved.
 */
 
 // Environments
@@ -21,7 +21,7 @@ database.whenAllUpdated(function () {
     fs.writeFileSync(__dirname + '/database.json', jsonText);
 });
 
-var appKey = fs.readFileSync('/Users/JoyNeop/myfonts-appkey.txt').toString();
+var appKey = fs.readFileSync('~/myfonts-appkey.txt').toString();
 var listJson = JSON.parse(fs.readFileSync(__dirname + '/raw-families-list.json').toString());
 
 // Find diff between `raw-families-list.json` and `database.json` and add the missing rows
