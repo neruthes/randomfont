@@ -1,5 +1,5 @@
 /*
-(c) 2016 Joy Neop. All rights reserved.
+(c) 2016 Neruthes. All rights reserved.
 */
 
 var exports = module.exports = {};
