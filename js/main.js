@@ -23,7 +23,7 @@ app.request = function (url, callback) {
 app.getFontSampleImageUrl = function (data) {
     var imgWidth = Math.floor(document.getElementById('js-FontSampleImage-container').offsetWidth*0.76) * app.devicePixelRatio;
     imgWidth = 3000;
-    var fontSampleImageUrl = 'https://apicdn.myfonts.net/v1/fontsample?id=_FID_&idtype=familyid&text=_TEXT_&fg=FFFFFF&bg=000000&format=png&transparent=true&size=150&width=_WIDTH_&behaviour=resize'.replace(/_WIDTH_/, imgWidth).replace(/_FID_/, data.id).replace(/_TEXT_/, encodeURI(data.familyName));
+    var fontSampleImageUrl = `https://apicdn.myfonts.net/v1/fontsample?id=_FID_&idtype=familyid&text=_TEXT_&fg=FFFFFF&bg=${dimBgColor}&format=png&transparent=true&size=150&width=_WIDTH_&behaviour=resize`.replace(/_WIDTH_/, imgWidth).replace(/_FID_/, data.id).replace(/_TEXT_/, encodeURI(data.familyName));
     console.log(fontSampleImageUrl);
     return fontSampleImageUrl;
 };
@@ -88,7 +88,18 @@ app.renderPage = function (data) {
         document.getElementById('js-Caption-Designer').innerHTML = 'DESIGNERS';
     };
     document.getElementById('js-PurchaseLink').href = data.url + '?refby=joyneop';
-    window.theRandomColor = app.pickRandomly(app.gayradientColors).match(/#[0-9A-F]{6}/)[0];
+    // window.theRandomColor = app.pickRandomly(app.gayradientColors).match(/#[0-9A-F]{6}/)[0];
+    window.theRandomColor = app.pickRandomly(app.gayradientColors);
+    window.dimBgColor = (function (theRandomColor) {
+        var hexstr = theRandomColor.replace('#', '');
+        var hexgroup = [
+            hexstr.slice(0, 2),
+            hexstr.slice(2, 4),
+            hexstr.slice(4, 6),
+        ];
+        return '#' + hexgroup.map(x => Math.floor(parseInt(x, 16) * 0.6)).map(x => x.toString(16)).join('');
+    })(theRandomColor);
+    document.querySelector('.fontSampleImage-container').style.backgroundColor = dimBgColor;
     // document.getElementById('css-FontMetadata-anchor-hover').innerHTML = 'a.hover--magic-underlined:hover { border-bottom: 2px solid _COLOR_; }'.replace(/_COLOR_/, theRandomColor);
     document.getElementById('js-FontDesigner').innerHTML = app.generateDomForDesigners(data.designer);
     document.getElementById('js-FontPublisher').innerHTML = '<a class="hover--magic-underlined" href="_URL_" target="_blank" rel="nofollow">_NAME_</a>'.replace(/_NAME_/g, data.foundry.name).replace(/_URL_/g, data.foundry.url);
