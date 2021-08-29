@@ -23,7 +23,7 @@ app.request = function (url, callback) {
 app.getFontSampleImageUrl = function (data) {
     var imgWidth = Math.floor(document.getElementById('js-FontSampleImage-container').offsetWidth*0.76) * app.devicePixelRatio;
     imgWidth = 3000;
-    var fontSampleImageUrl = `https://apicdn.myfonts.net/v1/fontsample?id=_FID_&idtype=familyid&text=_TEXT_&fg=FFFFFF&bg=${dimBgColor}&format=png&transparent=true&size=150&width=_WIDTH_&behaviour=resize`.replace(/_WIDTH_/, imgWidth).replace(/_FID_/, data.id).replace(/_TEXT_/, encodeURI(data.familyName));
+    var fontSampleImageUrl = `https://apicdn.myfonts.net/v1/fontsample?id=_FID_&idtype=familyid&text=_TEXT_&fg=FFFFFF&bg=${dimBgColor.slice(1)}&format=png&transparent=true&size=150&width=_WIDTH_&behaviour=resize`.replace(/_WIDTH_/, imgWidth).replace(/_FID_/, data.id).replace(/_TEXT_/, encodeURI(data.familyName));
     console.log(fontSampleImageUrl);
     return fontSampleImageUrl;
 };

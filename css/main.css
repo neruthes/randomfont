@@ -82,7 +82,7 @@ a.hover--magic-underlined:hover, .hover--magic-underlined:hover {
 img#js-FontSampleImage {
     top: 54%;
     left: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
     display: block;
     width: auto;
     max-width: 74%;
@@ -133,8 +133,8 @@ img#js-FontSampleImage {
     color: rgba(255, 255, 255, 0.7);
 }
 
-.row:hover #js-expand {
-}
+/* .row:hover #js-expand {
+} */
 
 /* ---------------------------------------- */
 
