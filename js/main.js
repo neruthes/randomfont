@@ -116,11 +116,11 @@ app.pickRandomNumberUpTo = function (upperBoundary) {
 };
 
 window.addEventListener('load', function () {
-    app.request('/backend/gay.json', function (ev) {
+    app.request('./backend/gay.json', function (ev) {
         app.gayradientColors = JSON.parse(ev.target.responseText);
 
         app._currentFont_id = app.pickRandomNumberUpTo(app.getMaxFontId());
-        app.request('/backend/data2/_F_.json'.replace(/_F_/, app._currentFont_id), function (ev_) {
+        app.request('./backend/data2/_F_.json'.replace(/_F_/, app._currentFont_id), function (ev_) {
             app._currentFont = JSON.parse(ev_.target.responseText);
             app.renderPage(app._currentFont);
             document.getElementById('js-expand').addEventListener('click', function () {
